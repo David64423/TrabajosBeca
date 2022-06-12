@@ -1,0 +1,36 @@
+table{
+    margin-top: 200px;
+    margin-left: 150px;
+    background-image: url( ../img/math.jpg);
+    border: solid 1px black;
+    height: 75%;
+    width: 75%;
+}
+button{
+    height: 100%;
+    width: 100%;
+}
+#pantalla{
+    height:50px;
+    width: 100%;
+}
+body{
+
+    background-image: url(../img/tablones.jpg);
+    background-size:contain;
+}
+.color:hover{
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+#mensaje{
+    font-size: 40px;
+    font-weight: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.color:active{
+    background-color: blueviolet;
+    color: white;
+}
