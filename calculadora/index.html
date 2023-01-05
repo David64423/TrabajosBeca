@@ -14,55 +14,146 @@
     <div id="identificador">
         <table>
                 <tr>
-                    <th id ="pantalla" colspan="7"><button class="iden"></button></th>
+                    <th  id ="pantalla" colspan="7"><button  id="pantalla2"></button></th>
                 </tr>
                 <tr>
-                    <th><button class="color">Rad</button></th>
-                    <th><button class="color">Deg</button></th>
-                    <th><button class="color">x!</button></th>
-                    <th><button class="color">(</button></th>
-                    <th><button class="color">)</button></th>
-                    <th><button class="color">%</button></th>
-                    <th><button class="color">AC</button></th>
+                    <th><button class="color cientifica">Rad</button></th>
+                    <th><button class="color cientifica">Deg</button></th>
+                    <th><button class="color cientifica">x!</button></th>
+                    <th><button onclick="numero(auxiliares[1])" class="color">ans</button></th>
+                    <th><button onclick="operacionBasica('^')" class="color">X<sup>2</sup></button></th>
+                    <th><button onclick="numero(3.14159)" class="color">π</button></th>
+                    <th><button onclick="borrar()"id="acc" class="color">AC</button></th>
                 </tr>
                 <tr>
-                    <th><button class="color">inv</button></th>
-                    <th><button class="color">sin</button></th>
-                    <th><button class="color">in</button></th>
-                    <th><button class="color">7</button></th>
-                    <th><button class="color">8</button></th>
-                    <th><button class="color">9</button></th>
-                    <th><button class="color">/</button></th>
+                    <th><button class="color cientifica">inv</button></th>
+                    <th><button class="color cientifica">sin</button></th>
+                    <th><button class="color cientifica">in</button></th>
+                    <th><button onclick="numero(7)" class="color number">7</button></th>
+                    <th><button onclick="numero(8)" class="color number">8</button></th>
+                    <th><button onclick="numero(9)" class="color number">9</button></th>
+                    <th><button onclick="operacionBasica('/')" class="color">/</button></th>
                 </tr>
                 <tr>
-                    <th><button class="color">π</button></th>
-                    <th><button class="color">cos</button></th>
-                    <th><button class="color">log</button></th>
-                    <th><button class="color">4</button></th>
-                    <th><button class="color">5</button></th>
-                    <th><button class="color">6</button></th>
-                    <th><button class="color">x</button></th>
+                    <th><button  class="color cientifica">e</button></th>
+                    <th><button class="color cientifica">cos</button></th>
+                    <th><button class="color cientifica">log</button></th>
+                    <th><button onclick="numero(4)" class="color number">4</button></th>
+                    <th><button onclick="numero(5)" class="color number">5</button></th>
+                    <th><button onclick="numero(6)" class="color number">6</button></th>
+                    <th><button onclick="operacionBasica('x')" class="color">x</button></th>
                 </tr>
                 <tr>
-                    <th><button class="color">e</button></th>
-                    <th><button class="color">tan</button></th>
-                    <th><button class="color">√</button></th>
-                    <th><button class="color">1</button></th>
-                    <th><button class="color">2</button></th>
-                    <th><button class="color">3</button></th>
-                    <th><button class="color">-</button></th>
+                    <th><button class="color cientifica">)</button></th>
+                    <th><button class="color cientifica">tan</button></th>
+                    <th><button class="color cientifica">%</button></th>
+                    <th><button onclick="numero(1)" class="color number">1</button></th>
+                    <th><button onclick="numero(2)" class="color number">2</button></th>
+                    <th><button onclick="numero(3)" class="color number">3</button></th>
+                    <th><button onclick="operacionBasica('-')" class="color">-</button></th>
                 </tr>
                 <tr>
-                    <th><button class="color">ans</button></th>
-                    <th><button class="color">EXP</button></th>
-                    <th><button class="color">x^y</button></th>
-                    <th><button class="color">0</button></th>
-                    <th><button class="color">.</button></th>
-                    <th><button class="color">=</button></th>
-                    <th><button class="color">+</button></th>
+                    <th><button   class="color cientifica">(</button></th>
+                    <th><button class="color cientifica">EXP</button></th>
+                    <th><button onclick="raiz()" class="color cientifica">√</button></th>
+                    <th><button onclick="numero(0)" class="color">0</button></th>
+                    <th><button onclick="numero('.')" class="color">.</button></th>
+                    <th><button onclick="igual()" class="color">=</button></th>
+                    <th><button onclick="operacionBasica('+')" class="color">+</button></th>
                 </tr>
         </table>
     </div>
+    <script>
+        let pantalla = document.getElementById("pantalla2");
+        let numeros= ["","","","",""];
+        let auxiliares= ["","","",""];
+       
+    function numero(a){
+        a= a.toString();
+        if(auxiliares[3]==""){
+            numeros[0]=numeros[0]+ a;
+        }
+        else{
+            numeros[1]=numeros[1]+ a;
+        }
+        pantalla.innerText += a;
+      
+    } 
+    
+    
+
+  
+
+
+   
+    
+    function igual(){
+    let resultado=0;
+    let mostrar="";
+    mostrar=numeros[0]+auxiliares[0]+numeros[1];
+    numeros[0]= Number(numeros[0]);
+    numeros[1]=Number(numeros[1]);
+ if (auxiliares[0]=='+'){
+ resultado=numeros[0]+ numeros[1];
+ }
+ else if(auxiliares[0]=='-'){
+    resultado=numeros[0]- numeros[1];
+ }
+
+ else if(auxiliares[0]=='/'){
+    resultado=numeros[0]/ numeros[1];
+ }
+
+ else if(auxiliares[0]=='x'){
+    resultado=numeros[0]* numeros[1];
+ }
+ else if(auxiliares[0]=='^'){
+    resultado=numeros[0]*numeros[0];
+ }
+ else{
+    resultado=numeros[0];
+ }
+ numeros[0]= resultado.toString();
+ numeros[1]="";
+ auxiliares[3]="";
+ auxiliares[0]="";
+auxiliares[1]= resultado.toString();
+ //alert(mostrar);
+ pantalla.innerText = resultado;
+    }
+
+    
+
+    function operacionBasica(a){
+        //let mostrar="";
+        auxiliares[3]="no";
+        auxiliares[0]=a;
+        //mostrar= numeros[0]+auxiliares[0];
+        pantalla.innerText += a;
+    }
+
+    function resta(){
+        let mostrar="";
+        auxiliares[3]="no";
+        auxiliares[0]="-";
+        mostrar= numeros[0]+auxiliares[0];
+
+        //alert(mostrar)
+    }
+
+    
+
+    function borrar(){
+        numeros[0]="";
+        numeros[1]="";
+        auxiliares[0]="";
+        auxiliares[3]="";
+        pantalla.innerText = "";
+    }
+
+
+    </script>
+
     
 </body>
 </html>
